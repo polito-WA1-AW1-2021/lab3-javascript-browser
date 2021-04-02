@@ -19,9 +19,9 @@ function Task(id, description, isImportant = false, isPrivate = true, deadline =
      * @param {*} date the javascript Date to be checked
      */
     this.isToday =  () => {
-        const comparisonTemplate = 'YYYY-MM-DD'
-        const now = dayjs()
-        return this.deadline && (this.deadline.format(comparisonTemplate) === now.format(comparisonTemplate))
+        const comparisonTemplate = 'YYYY-MM-DD';
+        const now = dayjs();
+        return this.deadline && (this.deadline.format(comparisonTemplate) === now.format(comparisonTemplate));
     }
 
     /** 
@@ -29,9 +29,9 @@ function Task(id, description, isImportant = false, isPrivate = true, deadline =
      * @param {*} date the javascript Date to be checked
      */
      this.isYesterday = () => {
-        const comparisonTemplate = 'YYYY-MM-DD'
+        const comparisonTemplate = 'YYYY-MM-DD';
         const yesterday = dayjs().subtract(1, 'day');
-        return this.deadline && (this.deadline.format(comparisonTemplate) === yesterday.format(comparisonTemplate))
+        return this.deadline && (this.deadline.format(comparisonTemplate) === yesterday.format(comparisonTemplate));
     }
 
     /** 
@@ -39,9 +39,9 @@ function Task(id, description, isImportant = false, isPrivate = true, deadline =
      * @param {*} date the javascript Date to be checked
      */
     this.isTomorrow = () => {
-        const comparisonTemplate = 'YYYY-MM-DD'
+        const comparisonTemplate = 'YYYY-MM-DD';
         const tomorrow = dayjs().add(1, 'day');
-        return this.deadline && (this.deadline.format(comparisonTemplate) === tomorrow.format(comparisonTemplate))
+        return this.deadline && (this.deadline.format(comparisonTemplate) === tomorrow.format(comparisonTemplate));
     }
 
     /**
@@ -51,7 +51,7 @@ function Task(id, description, isImportant = false, isPrivate = true, deadline =
      this.isNextWeek = () => {
          const tomorrow = dayjs().add(1, 'day');
          const nextWeek = dayjs().add(7, 'day');
-         const ret = this.deadline && ( !this.deadline.isBefore(tomorrow,'day') && !this.deadline.isAfter(nextWeek,'day') ) ;
+         const ret = this.deadline && ( !this.deadline.isBefore(tomorrow,'day') && !this.deadline.isAfter(nextWeek,'day') );
          console.dir(this.deadline);
          console.log(ret);
          return ret;
@@ -194,7 +194,7 @@ function filterTasks( filterId, titleText, filterFn ) {
 // ----- Main ----- //
 const taskList = new TaskList();
 // Spread operator (...) cannot be applied to objects.
-TASKS.forEach(t => { taskList.add(new Task(...t)); })
+TASKS.forEach(t => { taskList.add(new Task(...t)); });
 createListTasks(taskList.filterAll());
 // ---------------- //
 
